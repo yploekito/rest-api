@@ -6,11 +6,11 @@ const authentication = require('../middlewear/authentication')
 const authorization = require('../middlewear/authorization')
 
 
-router.use(authentication)
 router.get('/', todoController.getTodos)
 // router.get('/', (req,res)=>{
 //     res.json('hello')
 // })
+router.use(authentication)
 router.get('/:id', authorization, todoController.getTodosById)
 router.post('/', todoController.createTodo)
 router.delete('/:id', authorization, todoController.deleteTodo)
